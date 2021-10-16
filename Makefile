@@ -1,8 +1,14 @@
 DOCKERFILE=leffen/k8sample
 VERSION=v1.3
+REGISTRY=localhost:56990
+#REGISTRY=k3d-test02-registry:56990
 
 build:
 	docker build -t $(DOCKERFILE):$(VERSION) .
+
+lreg:
+	docker build -t $(REGISTRY)/$(DOCKERFILE):$(VERSION) .
+	docker push  $(REGISTRY)/$(DOCKERFILE):$(VERSION)
 
 push:
 	docker push $(DOCKERFILE):$(VERSION)

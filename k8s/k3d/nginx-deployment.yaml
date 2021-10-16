@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-test-registry
+  namespace: k8sample
+  labels:
+    app: nginx-test-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-test-registry
+  template:
+    metadata:
+      labels:
+        app: nginx-test-registry
+    spec:
+      containers:
+      - name: nginx-test-registry
+        image:  k3d-test02-registry:56990/nginx:latest
+        ports:
+        - containerPort: 80
