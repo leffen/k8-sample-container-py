@@ -1,5 +1,5 @@
 DOCKERFILE=leffen/k8sample
-VERSION=v1.1
+VERSION=v1.3
 
 build:
 	docker build -t $(DOCKERFILE):$(VERSION) .
@@ -11,7 +11,7 @@ run:
 	FLASK_APP=app FLASK_ENV=development flask run --port 3010
 
 rund:
-	docker run --rm -p 3010:3010 $(DOCKERFILE):$(VERSION)
+	docker run --rm -p 3010:80 $(DOCKERFILE):$(VERSION)
 
 prep:
 	pip install -r requirements.txt

@@ -8,8 +8,6 @@ from flask_healthz import healthz,HealthError
 import os
 
 
-
-
 def liveness():
   pass
 

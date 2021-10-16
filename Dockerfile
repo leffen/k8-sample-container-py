@@ -9,7 +9,6 @@ RUN pip3 install -r /requirements.txt
 COPY . /app
 WORKDIR /app
 
-EXPOSE 3010
+EXPOSE 80
 
-#ENTRYPOINT ["gunicorn","--bind","0.0.0.0:3010","manage:app"]
-ENTRYPOINT ["gunicorn","--bind","0.0.0.0:3010","app:app"]
+ENTRYPOINT ["gunicorn","--bind","0.0.0.0:80","app:app"]
