@@ -5,6 +5,9 @@ from werkzeug.serving import run_simple
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from flask_prometheus_metrics import register_metrics
 from flask_healthz import healthz,HealthError
+import os
+
+
 
 
 def liveness():
@@ -34,7 +37,8 @@ app.jinja_env.globals.update(slugify=slugify)
 @app.route('/',  defaults={'u_path': ''})
 @app.route('/<path:u_path>')
 def index(u_path):
-  return render_template('index.html', upath = u_path )
+  back_color = os.environ.get("BGCOLOR")
+  return render_template('index.html', upath = u_path,bgcolor = back_color )
 
 register_metrics(app, app_version="v0.1.2", app_config="staging")
 
