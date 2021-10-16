@@ -16,5 +16,6 @@ rund:
 prep:
 	pip install -r requirements.txt
 
-release: build push
-#	kubectl apply -f k8s/
+apply: build
+	kubectl apply -f k8s/k3d/k8sample-ns.yaml
+	kubectl apply -f k8s/k3d
