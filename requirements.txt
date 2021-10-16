@@ -1,0 +1,8 @@
+redis
+python-slugify
+Flask==2.0.1
+gunicorn==20.1.0
+python-dotenv
+flask_prometheus_metrics
+prometheus_client
+flask_healthz
